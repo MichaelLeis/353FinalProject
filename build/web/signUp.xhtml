@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            td { 
+                padding-right: 26px;
+                padding-left: 21px;
+            } 
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p>Select a Profile Icon!</p>
+            <h:graphicImage library="images" name="#{signUpController.images[0]}" style="width:70px;"/>
+            <h:graphicImage library="images" name="#{signUpController.images[1]}" style="width:70px;"/>
+            <h:graphicImage library="images" name="#{signUpController.images[2]}" style="width:70px;"/>
+            <h:graphicImage library="images" name="#{signUpController.images[3]}" style="width:70px;"/>
+            <h:graphicImage library="images" name="#{signUpController.images[4]}" style="width:70px;"/>
+            <h:selectOneRadio value="#{signUpController.icon}">
+   			<f:selectItem itemValue="1"/> 
+   			<f:selectItem itemValue="2"/>
+   			<f:selectItem itemValue="3"/>
+                        <f:selectItem itemValue="4"/>
+   			<f:selectItem itemValue="5"/>
+            </h:selectOneRadio>
+            <h:commandButton id="submtID" value="Sign Up" action="homepage.xhtml"/>
+        </h:form>
+    </h:body>
+</html>
