@@ -1,0 +1,55 @@
+Databse - finalProject
+-----------------------------------------------------------------------------------
+
+create schema linkedU;
+
+create table linkedU.comments (
+ID int,
+comments varchar(500),
+CommentDate date
+);
+
+create table linkedU.studentAcct (
+FirstN varchar(30),
+LastN varchar(30),
+Email varchar(60),
+ID int,
+Pass varchar(30),
+UserN varchar(30)
+);
+
+create table linkedU.studentHP (
+fullName varchar (60),
+ACT int,
+SAT int,
+PSAT int,
+NMSQT int,
+Essay varchar(5000),
+Majors varchar(500),
+VideoLinks varchar(500),
+PictureLinks varchar(500),
+ID int
+);
+
+create table linkedU.univHP (
+Description varchar(1000),
+Majors varchar(500),
+Sports varchar(500),
+Housing varchar(300),
+Tutition int,
+GradRate int,
+AvgFinAid int,
+ID int
+UnivName varchar(100)
+);
+
+create table linkedU.univAcct (
+FirstN varchar(30),
+LastN varchar(30),
+Email varchar(60),
+ID int,
+Pass varchar(30),
+UserN varchar(30),
+JobTitle varchar(50),
+UnivName varchar(100)
+);
