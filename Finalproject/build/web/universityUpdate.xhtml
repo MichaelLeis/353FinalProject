@@ -1,0 +1,114 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>LINKED U</title>
+        <h:outputStylesheet library="css" name="index.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Oxygen|Work+Sans" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+            #footer{
+                background-color: #3d445c;
+                color: white;
+                height: 12em;
+                position: fixed;
+                width: 100%;
+                left: 0;
+                bottom: 0;
+            }
+            .section{
+                font-family: 'Ubuntu', sans-serif;
+                list-style-type: none;
+                line-height: 1.5em;
+                float: left;
+                width: 20%;
+                text-align: center;
+            }
+            .section p{
+                font-size: 1.5em;
+                color: #c3c3c3;
+            }
+            .section a{
+                text-decoration: none;
+                color: white;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="header">
+            <a href="#default" class="logo">LINKEDU</a>
+            <div class="header-right">
+                <a class="active" href="#home">Home</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
+                <div class="searchContainer">
+                    <input type="text" placeholder="Search.."></input>
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="main">
+<h2>Update Information Here:</h2><br/>
+        <h:form>
+            First Name: <h:inputText id="firstID" value="#{loginController.login.firstName}">
+            </h:inputText> <br/><br/>
+
+            Last Name: <h:inputText id="lastID" value="#{loginController.login.lastName}">
+            </h:inputText> <br/><br/>
+
+            User ID: <h:outputText id="userID" value="#{loginController.login.userID}">
+            </h:outputText> <br/><br/>
+
+            Password: <h:inputSecret id="passwordID" value="#{loginController.login.password}">
+                <f:validateRequired/>
+            </h:inputSecret> <br/><br/>
+            
+            Confirm Password: <h:inputSecret id="passwrdID" value="#{loginController.pass2}">
+                <f:validateRequired/>
+            </h:inputSecret> <br/><br/>
+
+            Email: <h:inputText id="emailID" value="#{loginController.login.email}">
+            </h:inputText> <br/><br/>
+
+            Security Question: <h:inputText id="questionID" value="#{loginController.login.secQuestion}">
+            </h:inputText> <br/><br/>
+
+            Security Answer: <h:inputText id="answerID" value="#{loginController.login.secAnswer}">
+            </h:inputText> <br/><br/>
+
+            <h:commandButton id="submitID" value="Update" action="#{loginController.updateProfile()}"/><br/><br/>
+            <h:commandButton id="back4" value="Back" action="universityAccountPage.xhtml"/>
+        </h:form>
+        </div>
+
+        <div id="footer">
+            <ul class="section">
+                <p>Information</p>
+                <li><a href="">About</a></li>
+                <li><a href="">The Team</a></li>
+                <li><a href="">Privacy Policy</a></li>
+            </ul>
+            <ul class="section">
+                <p>Contact</p>
+                <li><a href="">Ask Us Anything</a></li>
+                <li><a href="">Advertisments</a></li>
+            </ul>
+            <ul class="section">
+                <p>Friends</p>
+                <li><a href="">person1</a></li>
+                <li><a href="">person2</a></li>
+                <li><a href="">person3</a></li>
+            </ul>
+            <ul class="section">
+                <p>Follow us</p>
+                <li><a href="">FaceBook</a></li>
+                <li><a href="">Twitter</a></li>
+                <li><a href="">Instagram</a></li>
+            </ul>
+        </div>
+    </h:body>
+</html>
