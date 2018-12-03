@@ -15,7 +15,8 @@ LastN varchar(30),
 Email varchar(60),
 ID int,
 Pass varchar(30),
-UserN varchar(30)
+UserN varchar(30),
+icon int
 );
 
 create table linkedU.studentHP (
