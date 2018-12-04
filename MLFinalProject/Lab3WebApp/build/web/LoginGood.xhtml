@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Login Successful</title>
+    </h:head>
+    <h:body>
+        <div style="text-align:center;">David Mancol and Michael Leis's Login Page</div>
+        <h1>Hello, <h:outputText id="userID" value="#{loginController.login.firstName}"></h:outputText>&nbsp;<h:outputText id="usrID" value="#{loginController.login.lastName}"></h:outputText></h1><h:form>
+            <b><h:outputText id="usID" value="#{loginController.login.userID}"></h:outputText></b>,&nbsp;click here to update your info:
+        <h:commandButton id="back" value="Update" action="update.xhtml"/>
+        <br/><br/>
+        </h:form>
+        <h2>
+                Welcome to your Homepage! </h2> <br/><br/>
+                <img src='https://universitymarketing.illinoisstate.edu/images/logos/PRIMARY_horiz_3c.png'></img>
+        
+        
+
+    </h:body>
+</html>
+

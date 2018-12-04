@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/I:/Lab3/Lab3WebApp/src/java/dao/ProfileDAOImpl.java</file>
+            <file>file:/I:/Lab3/Lab3WebApp/web/login.xhtml</file>
+            <file>file:/I:/Lab3/Lab3WebApp/src/java/model/SignUpBean.java</file>
+            <file>file:/I:/Lab3/Lab3WebApp/web/error2.1.xhtml</file>
+            <file>file:/I:/Lab3/Lab3WebApp/web/LoginBad.xhtml</file>
+            <file>file:/I:/Lab3/Lab3WebApp/web/error.xhtml</file>
+            <file>file:/I:/Lab3/Lab3WebApp/web/error2.xhtml</file>
+            <file>file:/I:/Lab3/Lab3WebApp/web/access-denied.xhtml</file>
+            <file>file:/I:/Lab3/Lab3WebApp/web/LoginGood.xhtml</file>
+            <file>file:/I:/Lab3/Lab3WebApp/src/java/dao/ProfileDAO.java</file>
+            <file>file:/I:/Lab3/Lab3WebApp/web/echo.xhtml</file>
+            <file>file:/I:/Lab3/Lab3WebApp/src/java/model/PassHash.java</file>
+            <file>file:/I:/Lab3/Lab3WebApp/src/java/model/MailBean.java</file>
+            <file>file:/I:/Lab3/Lab3WebApp/web/update.xhtml</file>
+            <file>file:/I:/Lab3/Lab3WebApp/src/java/controller/LoginController.java</file>
+            <file>file:/I:/Lab3/Lab3WebApp/src/java/controller/SignUpController.java</file>
+            <file>file:/I:/Lab3/Lab3WebApp/web/signUp.xhtml</file>
+        </group>
+    </open-files>
+</project-private>

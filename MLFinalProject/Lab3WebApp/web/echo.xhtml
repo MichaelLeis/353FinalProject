@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Sign Up Successful</title>
+    </h:head>
+    <h:body>
+        <h1>Sign Up Successful!</h1> <br/><br/>
+        Here are the credentials that you used to sign up: <br/> <br/>
+        
+        First Name: <h:outputText id="firstID" value="#{signUpController.theModel.firstName}">
+        </h:outputText> <br/><br/>
+
+        Last Name: <h:outputText id="lastID" value="#{signUpController.theModel.lastName}">
+        </h:outputText> <br/><br/>
+
+        User ID: <h:outputText id="userID" value="#{signUpController.theModel.userID}">
+        </h:outputText> <br/><br/>
+
+        Password: <h:outputText id="passwordID" value="#{signUpController.theModel.password}">
+        </h:outputText> <br/><br/>
+
+        Confirm Password: <h:outputText id="confirmID" value="#{signUpController.theModel.password2}">
+        </h:outputText> <br/><br/>
+
+        Email: <h:outputText id="emailID" value="#{signUpController.theModel.email}">
+        </h:outputText> <br/><br/>
+
+        Security Question: <h:outputText id="questionID" value="#{signUpController.theModel.secQuestion}">
+        </h:outputText> <br/><br/>
+
+        Security Answer: <h:outputText id="answerID" value="#{signUpController.theModel.secAnswer}">
+        </h:outputText> <br/><br/>
+    </h:body>
+</html>
+

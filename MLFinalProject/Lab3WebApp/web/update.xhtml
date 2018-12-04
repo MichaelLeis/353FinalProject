@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <f:event listener="#{loginController.isAuthenticated}" type="preRenderView" />
+                        <!--Need to add # to the variable above-->
+    
+    
+    <h:head>
+        <title>Update Page</title>
+    </h:head>
+    <h:body>
+        <h2>Update Information Here:</h2><br/>
+        <h:form>
+            First Name: <h:inputText id="firstID" value="#{loginController.login.firstName}">
+            </h:inputText> <br/><br/>
+
+            Last Name: <h:inputText id="lastID" value="#{loginController.login.lastName}">
+            </h:inputText> <br/><br/>
+
+            User ID: <h:outputText id="userID" value="#{loginController.login.userID}">
+            </h:outputText> <br/><br/>
+
+            Password: <h:inputSecret id="passwordID" value="#{loginController.login.password}">
+                <f:validateRequired/>
+            </h:inputSecret> <br/><br/>
+            
+            Confirm Password: <h:inputSecret id="passwrdID" value="#{loginController.pass2}">
+                <f:validateRequired/>
+            </h:inputSecret> <br/><br/>
+
+            Email: <h:inputText id="emailID" value="#{loginController.login.email}">
+            </h:inputText> <br/><br/>
+
+            Security Question: <h:inputText id="questionID" value="#{loginController.login.secQuestion}">
+            </h:inputText> <br/><br/>
+
+            Security Answer: <h:inputText id="answerID" value="#{loginController.login.secAnswer}">
+            </h:inputText> <br/><br/>
+
+            <h:commandButton id="submitID" value="Update" action="#{loginController.updateProfile()}"/>
+        </h:form>
+
+    </h:body>
+</html>
+
