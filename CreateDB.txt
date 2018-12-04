@@ -29,7 +29,8 @@ Essay varchar(5000),
 Majors varchar(500),
 VideoLinks varchar(500),
 PictureLinks varchar(500),
-ID int
+ID int,
+icon int
 );
 
 create table linkedU.univHP (
