@@ -13,9 +13,9 @@ import javax.inject.Named;
  *
  * @author meleis
  */
-@Named(value = "universityAccount")
+@Named(value = "studentAccount")
 @Dependent
-public class UniversityAccount {
+public class StudentAccount {
 
     private String first;
     private String last;
@@ -23,24 +23,29 @@ public class UniversityAccount {
     private int ID;
     private String password;
     private String userN;
-    private String jobTitle;
-    private String universityN;
+    private int icon;
     
-    public UniversityAccount() {
+    public StudentAccount() {
     }
 
-    public UniversityAccount(String first, String last, String email, int ID, String password, String userN, String jobTitle, String universityN) {
+    public StudentAccount(String first, String last, String email, int ID, String password, String userN, int icon) {
         this.first = first;
         this.last = last;
         this.email = email;
         this.ID = ID;
         this.password = password;
         this.userN = userN;
-        this.jobTitle = jobTitle;
-        this.universityN = universityN;
+        this.icon = icon;
     }
 
-   
+    public int getIcon() {
+        return icon;
+    }
+
+    public void setIcon(int icon) {
+        this.icon = icon;
+    }
+
 
     public String getFirst() {
         return first;
@@ -88,21 +93,5 @@ public class UniversityAccount {
 
     public void setUserN(String userN) {
         this.userN = userN;
-    }
-
-    public String getJobTitle() {
-        return jobTitle;
-    }
-
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
-    }
-
-    public String getUniversityN() {
-        return universityN;
-    }
-
-    public void setUniversityN(String universityN) {
-        this.universityN = universityN;
-    }    
+    } 
 }

@@ -4,7 +4,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>LINKED U</title>
-        <h:outputStylesheet library="css" name="style.css"/>
+        <h:outputStylesheet library="css" name="index.css"/>
         <link href="https://fonts.googleapis.com/css?family=Oxygen|Work+Sans" rel="stylesheet"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <style>
@@ -13,7 +13,6 @@
                 background-color: #3d445c;
                 color: white;
                 height: 12em;
-                position: fixed;
                 width: 100%;
                 left: 0;
                 bottom: 0;
@@ -52,42 +51,32 @@
 
 
         <div id="main">
-            <h2>Sign Up Here!</h2><br/>
-        <h:form>
-            First Name: <h:inputText id="firstID" value="#{signUpController.univModel.first}">
-                <f:validateLength minimum="2" maximum ="25"/>
+<h2>Update:</h2><br/>
+        <h:form>  
+            Description: <h:inputTextarea id="essay2" value="#{loginController.univHP.description}" cols="30" rows="5">
+            </h:inputTextarea> <br/><br/>
+
+            Major(s): <h:inputTextarea id="majors32" value="#{loginController.univHP.majors}" cols="30" rows="5">
+            </h:inputTextarea> <br/><br/>
+
+            Sport(s): <h:inputTextarea id="sport2" value="#{loginController.univHP.sports}" cols="30" rows="5">
+            </h:inputTextarea> <br/><br/>
+
+            Housing: <h:inputTextarea id="housing2" value="#{loginController.univHP.housing}" cols="30" rows="5">
+            </h:inputTextarea> <br/><br/>
+            
+            Tuition: <h:inputText id="tuition2" value="#{loginController.univHP.tuition}">
+            </h:inputText> <br/><br/>
+            
+            Average Financial Aid: <h:inputText id="finaid2" value="#{loginController.univHP.avgFinAid}">
+            </h:inputText> <br/><br/>
+            
+            Graduation Rate: <h:inputText id="gradRate2" value="#{loginController.univHP.graduation}">
             </h:inputText> <br/><br/>
 
-            Last Name: <h:inputText id="lastID" value="#{signUpController.univModel.last}">
-                <f:validateLength minimum="2" maximum ="25"/>
-            </h:inputText> <br/><br/>
-            
-            Username(this will be used to login): <h:inputText id="userID" value="#{signUpController.univModel.userN}">
-                <f:validateRequired/>
-            </h:inputText> <br/><br/>
-
-            Password: <h:inputSecret id="passwordID" value="#{signUpController.univModel.password}">
-                <f:validateRegex pattern = "((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})"/>
-                <f:validateRequired/>
-            </h:inputSecret> <br/><br/>
-
-            Email: <h:inputText id="emailID" value="#{signUpController.univModel.email}">
-                <f:validateRequired/>
-            </h:inputText> <br/><br/>
-            
-            Job Title: <h:inputText id="jobID" value="#{signUpController.univModel.jobTitle}">
-                <f:validateRequired/>
-            </h:inputText> <br/><br/>
-            
-            University Name: <h:inputText id="unameID" value="#{signUpController.univModel.universityN}">
-                <f:validateRequired/>
-            </h:inputText> <br/><br/>
-            
-            <h:commandButton id="submitID" value="Sign Up" action="#{signUpController.createUnivProfile()}"/>
-            <br/><br/><br/>
-            Note: the password provided must be 6-20 characters, include atleast 1 digit (0-9), include at least 1 upper and lower case letter, and 1 special character (@#$%).
+            <h:commandButton id="submitID1" value="Update" action="#{loginController.updateUnivHP()}"/>
+            <h:commandButton id="back3" value="Back" action="universityHP.xhtml"/>
         </h:form>
-
         </div>
 
         <div id="footer">
@@ -117,4 +106,3 @@
         </div>
     </h:body>
 </html>
-

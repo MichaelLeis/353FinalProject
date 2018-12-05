@@ -54,19 +54,31 @@
         <div id="main">
             <h2>Account Page</h2>
         <h:form>
-            Username: <h:outputText id="Uname1" value="#{loginController.username}"> 
-                </h:outputText> <br/><br/>
-                
-            Email: <h:outputText id="Em1" value="#{loginController.email}"> 
-                </h:outputText> <br/><br/>
-                
-            Job Title: <h:outputText id="JT" value="#{loginController.jobTitle}"> 
-                </h:outputText> <br/><br/>
-          
+            First Name: <h:outputText id="unifirst" value="#{loginController.univLogin.first}">
+            </h:outputText> <br/><br/>
+
+            Last Name: <h:outputText id="unilast" value="#{loginController.univLogin.last}">
+            </h:outputText> <br/><br/>
+
+            Email: <h:outputText id="uniemail" value="#{loginController.univLogin.email}">
+            </h:outputText> <br/><br/>
+
+            Password: <h:outputText id="unipass" value="#{loginController.univLogin.password}">
+            </h:outputText> <br/><br/> 
+            
+            Username: <h:outputText id="uniuser" value="#{loginController.univLogin.userN}">
+            </h:outputText> <br/><br/>
+            
+            Job Title: <h:outputText id="unijbt" value="#{loginController.univLogin.jobTitle}">
+            </h:outputText> <br/><br/>
+            
+            University Name: <h:outputText id="uniusnivn" value="#{loginController.univLogin.universityN}">
+            </h:outputText> <br/><br/>
+            
             <br/><br/>
-            <h:commandButton id="update2" value="Update" action="universityUpdate.xhtml"/><br/><br/>
-            <h:commandButton id="back2" value="Back" action="homePage.xhtml"/>
-        </h:form>
+            <h:commandButton id="update2" value="Update" action="updateUniversityAcc.xhtml"/><br/><br/>
+            <h:commandButton id="back2" value="Back" action="universityHP.xhtml"/>
+            </h:form>
             
 
         </div>

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import dao.ProfileDAO;
@@ -12,8 +7,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ComponentSystemEvent;
-import model.PassHash;
+import model.StudentAccount;
+import model.StudentBean;
 import model.UniversityAccount;
+import model.UniversityBean;
 
 /**
  *
@@ -30,7 +27,43 @@ public class LoginController {
     private String jobTitle;
     private int attempts = 0;
     private UniversityAccount univLogin;
+    private StudentAccount studentLogin;
+    private UniversityBean univHP;
+    private StudentBean studentHP;
     private boolean logIn;
+    private static int ID = 1;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void changeID(int number) {
+        ID = number;
+    }
+
+    public UniversityBean getUnivHP() {
+        if (univHP.getMajors() == null) {
+            ProfileDAO profileDAO = new ProfileDAOImpl();
+            univHP = profileDAO.findHP(ID);
+        }
+        return univHP;
+    }
+
+    public void setUnivHP(UniversityBean univHP) {
+        this.univHP = univHP;
+    }
+
+    public StudentBean getStudentHP() {
+        return studentHP;
+    }
+
+    public void setStudentHP(StudentBean studentHP) {
+        this.studentHP = studentHP;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     public String getEmail() {
         return email;
@@ -56,20 +89,24 @@ public class LoginController {
         this.logIn = logIn;
     }
 
-//    public LoginController() {
-//        login = new SignUpBean();
-//        username = "";
-//        password = "";
-//    }    
-    
+    public LoginController() {
+        univLogin = new UniversityAccount();
+        studentLogin = new StudentAccount();
+        univHP = new UniversityBean();
+        studentHP = new StudentBean();
+    }
+
     public UniversityAccount getUnivLogin() {
+        if (univLogin.getUniversityN() == null) {
+            ProfileDAO profileDAO = new ProfileDAOImpl();
+            univLogin = profileDAO.findAccount(ID);
+        }
         return univLogin;
     }
 
     public void setUnivLogin(UniversityAccount univLogin) {
         this.univLogin = univLogin;
     }
-
 
     public String getUsername() {
         return username;
@@ -97,15 +134,16 @@ public class LoginController {
 
     public String checkPassword() {
         ProfileDAO profileDAO = new ProfileDAOImpl();
-        univLogin = profileDAO.findUserName(username);
+        String checkPass = profileDAO.findPassword(username);
 
 //        PassHash hash = new PassHash();
 //        hash.hashPass(password);
 //        String hashedPass = hash.hashPass(password);
-
-        if (univLogin.getPassword().equals(password)) {
+        if (checkPass.equals(password)) {
             logIn = true;
-            return "universityAccountPage.xhtml";
+            univHP = profileDAO.findHP(ID);
+            univLogin = profileDAO.findAccount(ID);
+            return "universityHP.xhtml";
         } else {
             return "LoginBad.xhtml";
         }
@@ -124,6 +162,50 @@ public class LoginController {
 
     }
 
+    public String updateStudentAcc() {
+        ProfileDAO aProfileDAO = new ProfileDAOImpl();    // Creating a new object each time.
+
+        int rowCount = aProfileDAO.updateStudentAcc(studentLogin); // Doing anything with the object after this?
+        if (rowCount == 1) {
+            return "studentAccountPage.xhtml";
+        } else {
+            return "updateHPError.xhtml";
+        }
+    }
+
+    public String updateUniversityAcc() {
+        ProfileDAO aProfileDAO = new ProfileDAOImpl();    // Creating a new object each time.
+
+        int rowCount = aProfileDAO.updateUnivAcc(univLogin); // Doing anything with the object after this?
+        if (rowCount == 1) {
+            return "universityAccountPage.xhtml";
+        } else {
+            return "updateHPError.xhtml";
+        }
+    }
+
+    public String updateStudentHP() {
+        ProfileDAO aProfileDAO = new ProfileDAOImpl();    // Creating a new object each time.
+
+        int rowCount = aProfileDAO.updateStudentHP(studentHP); // Doing anything with the object after this?
+        if (rowCount == 1) {
+            return "studentHP.xhtml";
+        } else {
+            return "updateHPError.xhtml";
+        }
+    }
+
+    public String updateUnivHP() {
+        ProfileDAO aProfileDAO = new ProfileDAOImpl();    // Creating a new object each time.
+
+        int rowCount = aProfileDAO.updateUnivHP(univHP); // Doing anything with the object after this?
+        if (rowCount == 1) {
+            return "universityHP.xhtml";
+        } else {
+            return "updateHPError.xhtml";
+        }
+    }
+
 //    public String updateProfile() {
 //        ProfileDAO aProfileDAO = new ProfileDAOImpl();    // Creating a new object each time.
 //
@@ -138,7 +220,6 @@ public class LoginController {
 //            return "error.xtml";
 //        }
 //    }
-
     public String getPass2() {
         return pass2;
     }
@@ -152,5 +233,13 @@ public class LoginController {
             return true;
         }
         return false;
+    }
+
+    public StudentAccount getStudentLogin() {
+        return studentLogin;
+    }
+
+    public void setStudentLogin(StudentAccount studentLogin) {
+        this.studentLogin = studentLogin;
     }
 }

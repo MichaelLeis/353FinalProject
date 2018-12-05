@@ -54,7 +54,7 @@ public class SearchController {
     }
     
     public String searchUniversities() {
-        universities = (new ProfileDAOImpl()).findByName(searchField);
+//        universities = (new ProfileDAOImpl()).findByName(searchField);
         return "response2.xhtml";
     }   
 }

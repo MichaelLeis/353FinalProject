@@ -4,7 +4,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>LINKED U</title>
-        <h:outputStylesheet library="css" name="style.css"/>
+        <h:outputStylesheet library="css" name="index.css"/>
         <link href="https://fonts.googleapis.com/css?family=Oxygen|Work+Sans" rel="stylesheet"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <style>
@@ -13,10 +13,10 @@
                 background-color: #3d445c;
                 color: white;
                 height: 12em;
-                position: fixed;
-                width: 100%;
-                left: 0;
-                bottom: 0;
+                position:fixed;
+                width:100%;
+                left:0;
+                bottom:0;
             }
             .section{
                 font-family: 'Ubuntu', sans-serif;
@@ -52,42 +52,16 @@
 
 
         <div id="main">
-            <h2>Sign Up Here!</h2><br/>
-        <h:form>
-            First Name: <h:inputText id="firstID" value="#{signUpController.univModel.first}">
-                <f:validateLength minimum="2" maximum ="25"/>
-            </h:inputText> <br/><br/>
-
-            Last Name: <h:inputText id="lastID" value="#{signUpController.univModel.last}">
-                <f:validateLength minimum="2" maximum ="25"/>
-            </h:inputText> <br/><br/>
-            
-            Username(this will be used to login): <h:inputText id="userID" value="#{signUpController.univModel.userN}">
-                <f:validateRequired/>
-            </h:inputText> <br/><br/>
-
-            Password: <h:inputSecret id="passwordID" value="#{signUpController.univModel.password}">
-                <f:validateRegex pattern = "((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})"/>
-                <f:validateRequired/>
-            </h:inputSecret> <br/><br/>
-
-            Email: <h:inputText id="emailID" value="#{signUpController.univModel.email}">
-                <f:validateRequired/>
-            </h:inputText> <br/><br/>
-            
-            Job Title: <h:inputText id="jobID" value="#{signUpController.univModel.jobTitle}">
-                <f:validateRequired/>
-            </h:inputText> <br/><br/>
-            
-            University Name: <h:inputText id="unameID" value="#{signUpController.univModel.universityN}">
-                <f:validateRequired/>
-            </h:inputText> <br/><br/>
-            
-            <h:commandButton id="submitID" value="Sign Up" action="#{signUpController.createUnivProfile()}"/>
-            <br/><br/><br/>
-            Note: the password provided must be 6-20 characters, include atleast 1 digit (0-9), include at least 1 upper and lower case letter, and 1 special character (@#$%).
-        </h:form>
-
+            <div id="wrap" style="text-align: center; margin: 0px auto; width: 40%">
+                <div id="search" style="float:left; text-align:left; padding:10px;">
+                    <h:form id = "search"> 
+                        Search Here<br/>
+                        <h:inputText id="searchField" value="#{searchController.searchField}" size="50"> 
+                        </h:inputText>
+                        <h:commandButton id="submtID" value="Find Schools" action="#{searchController.searchUniversities()}"/>
+                    </h:form>
+                </div>
+            </div>
         </div>
 
         <div id="footer">
@@ -117,4 +91,3 @@
         </div>
     </h:body>
 </html>
-

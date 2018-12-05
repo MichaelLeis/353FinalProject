@@ -54,15 +54,26 @@
         <div id="main">
             <h2>Account Page</h2>
         <h:form>
-            Username: <h:outputText id="Uname" value="#{loginController.username}"> 
-                </h:outputText> <br/><br/>
-                
-            Email: <h:outputText id="Em" value="#{loginController.email}"> 
-                </h:outputText> <br/><br/>
-          
+            First Name: <h:outputText id="stufirst" value="#{loginController.studentLogin.first}">
+            </h:outputText> <br/><br/>
+
+            Last Name: <h:outputText id="stulast" value="#{loginController.studentLogin.last}">
+            </h:outputText> <br/><br/>
+
+            Email: <h:outputText id="stuemail" value="#{loginController.studentLogin.email}">
+            </h:outputText> <br/><br/>
+
+            Password: <h:outputText id="stupass" value="#{loginController.studentLogin.password}">
+            </h:outputText> <br/><br/> 
+            
+            Username: <h:outputText id="stuuser" value="#{loginController.studentLogin.userN}">
+            </h:outputText> <br/><br/>
+
+            Icon: <h:graphicImage library="images" name="#{signUpController.images[loginController.studentLogin.icon]}" style="width:70px;"/>
+            
             <br/><br/>
-            <h:commandButton id="update1" value="Update" action="studentUpdate.xhtml"/><br/><br/>
-            <h:commandButton id="back1" value="Back" action="homePage.xhtml"/>
+            <h:commandButton id="update1" value="Update" action="updateStudentAcc.xhtml"/><br/><br/>
+            <h:commandButton id="back1" value="Back" action="studentHP.xhtml"/>
         </h:form>
             
 
