@@ -1,0 +1,127 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>LINKED U</title>
+        <h:outputStylesheet library="css" name="index.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Oxygen|Work+Sans" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+            #footer{
+                background-color: #3d445c;
+                color: white;
+                height: 12em;
+            }
+            .section{
+                font-family: 'Ubuntu', sans-serif;
+                list-style-type: none;
+                line-height: 1.5em;
+                float: left;
+                width: 20%;
+                text-align: center;
+            }
+            .section p{
+                font-size: 1.5em;
+                color: #c3c3c3;
+            }
+            .section a{
+                text-decoration: none;
+                color: white;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="header">
+            <a href="#default" class="logo">LINKEDU</a>
+            <div class="header-right">
+                <a class="active" href="login.xhtml">Home</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
+                <div class="searchContainer">
+                    <input type="text" placeholder="Search.."></input>
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="main">
+            <div id="wrap" style="text-align: center; margin: 0px auto; width: 80%">
+                <div id="search" style="float:left; text-align:left; padding:10px;">
+                    <p style="font-size:10pt; padding-right:13%; text-align:right;">Click the blue text below to sort!</p>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th width="200">Name</th>
+                                <th width="400">Majors</th>
+                                <th width="70">
+                                    <h:form>
+                                        <h:commandLink value="ACT" action="#{searchController.sortByACT()}"/>
+                                    </h:form>
+                                </th>
+                                <th width="70">
+                                    <h:form>
+                                        <h:commandLink value="SAT" action="#{searchController.sortBySAT()}"/>
+                                    </h:form>
+                                </th>
+                                <th width="70">
+                                    <h:form>
+                                        <h:commandLink value="PSAT" action="#{searchController.sortByPSAT()}"/>
+                                    </h:form>
+                                </th>
+                                <th width="70">
+                                    <h:form>
+                                        <h:commandLink value="NMSQT" action="#{searchController.sortByNMSQT()}"/>
+                                    </h:form>
+                                </th>
+                            </tr>
+                            <ui:repeat var="o" value="#{searchController.students}" varStatus="status">
+                                <tr>
+                                    <td>
+                                        <h:form>
+                                            <h:commandLink value="#{o.getStuName()}" action="#{searchController.getStudent(o.ID)}" style="padding:0"/>
+                                        </h:form>
+                                    </td>
+                                    <td>#{o.majors}</td>
+                                    <td>#{o.ACT}</td>
+                                    <td>#{o.SAT}</td>
+                                    <td>#{o.PSAT}</td>
+                                    <td>#{o.NMSQT}</td>
+                                </tr>  
+                                <tr></tr>
+                            </ui:repeat>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer">
+            <ul class="section">
+                <p>Information</p>
+                <li><a href="">About</a></li>
+                <li><a href="">The Team</a></li>
+                <li><a href="">Privacy Policy</a></li>
+            </ul>
+            <ul class="section">
+                <p>Contact</p>
+                <li><a href="">Ask Us Anything</a></li>
+                <li><a href="">Advertisments</a></li>
+            </ul>
+            <ul class="section">
+                <p>Friends</p>
+                <li><a href="">person1</a></li>
+                <li><a href="">person2</a></li>
+                <li><a href="">person3</a></li>
+            </ul>
+            <ul class="section">
+                <p>Follow us</p>
+                <li><a href="">FaceBook</a></li>
+                <li><a href="">Twitter</a></li>
+                <li><a href="">Instagram</a></li>
+            </ul>
+        </div>
+    </h:body>
+</html>
