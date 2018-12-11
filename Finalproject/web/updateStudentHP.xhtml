@@ -9,30 +9,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <style>
             @import url('https://fonts.googleapis.com/css?family=Ubuntu');
-            #footer{
-                background-color: #3d445c;
-                color: white;
-                height: 12em;
-                width: 100%;
-                left: 0;
-                bottom: 0;
-            }
-            .section{
-                font-family: 'Ubuntu', sans-serif;
-                list-style-type: none;
-                line-height: 1.5em;
-                float: left;
-                width: 20%;
-                text-align: center;
-            }
-            .section p{
-                font-size: 1.5em;
-                color: #c3c3c3;
-            }
-            .section a{
-                text-decoration: none;
-                color: white;
-            }
+
         </style>
     </h:head>
     <h:body>
@@ -51,8 +28,9 @@
 
 
         <div id="main">
+            <div id="submain">
 <h2>Update:</h2><br/>
-        <h:form>
+        <h:form class="inputBox">
             ACT: <h:inputText id="act" value="#{loginController.studentHP.ACT}">
             </h:inputText> <br/><br/>
 
@@ -65,23 +43,23 @@
             NMSQT: <h:inputText id="nmsqt" value="#{loginController.studentHP.NMSQT}">
             </h:inputText> <br/><br/>
             
-            Essay: <h:inputTextarea id="essay" value="#{loginController.studentHP.essay}" cols="30" rows="5">
+            Essay: <br/><h:inputTextarea id="essay" value="#{loginController.studentHP.essay}" cols="30" rows="5">
             </h:inputTextarea> <br/><br/>
 
-            Major(s): <h:inputTextarea id="major" value="#{loginController.studentHP.majors}" cols="30" rows="5">
+            Major(s): <br/><h:inputTextarea id="major" value="#{loginController.studentHP.majors}" cols="30" rows="5">
             </h:inputTextarea> <br/><br/>
 
-            Video Link(s): <h:inputTextarea id="videolink" value="#{loginController.studentHP.videoLink}" cols="30" rows="3">
+            Video Link(s): <br/><h:inputTextarea id="videolink" value="#{loginController.studentHP.videoLink}" cols="30" rows="3">
             </h:inputTextarea> <br/><br/>
 
-            Picture Link(s): <h:inputTextarea id="picturelink" value="#{loginController.studentHP.pictureLink}" cols="30" rows="3">
+            Picture Link(s): <br/><h:inputTextarea id="picturelink" value="#{loginController.studentHP.pictureLink}" cols="30" rows="3">
             </h:inputTextarea> <br/><br/>
 
-            <h:commandButton id="submitID1" value="Update" action="#{loginController.updateStudentHP()}"/><br/><br/>
+            <h:commandButton id="submitID1" value="Update" action="#{loginController.updateStudentHP()}"/>
             <h:commandButton id="back3" value="Back" action="studentHP.xhtml"/>
         </h:form>
         </div>
-
+        </div>
         <div id="footer">
             <ul class="section">
                 <p>Information</p>

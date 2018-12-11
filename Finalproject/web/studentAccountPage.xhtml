@@ -9,31 +9,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <style>
             @import url('https://fonts.googleapis.com/css?family=Ubuntu');
-            #footer{
-                background-color: #3d445c;
-                color: white;
-                height: 12em;
-                position: fixed;
-                width: 100%;
-                left: 0;
-                bottom: 0;
-            }
-            .section{
-                font-family: 'Ubuntu', sans-serif;
-                list-style-type: none;
-                line-height: 1.5em;
-                float: left;
-                width: 20%;
-                text-align: center;
-            }
-            .section p{
-                font-size: 1.5em;
-                color: #c3c3c3;
-            }
-            .section a{
-                text-decoration: none;
-                color: white;
-            }
+            
         </style>
     </h:head>
     <h:body>
@@ -52,8 +28,9 @@
 
 
         <div id="main">
+            <div id="submain">
             <h2>Account Page</h2>
-        <h:form>
+        <h:form class="inputBox">
             First Name: <h:outputText id="stufirst" value="#{loginController.studentLogin.first}">
             </h:outputText> <br/><br/>
 
@@ -63,8 +40,7 @@
             Email: <h:outputText id="stuemail" value="#{loginController.studentLogin.email}">
             </h:outputText> <br/><br/>
 
-            Password: <h:outputText id="stupass" value="#{loginController.studentLogin.password}">
-            </h:outputText> <br/><br/> 
+            Password: <h:commandButton id="resetP" value="Reset Password" action="studentHP.xhtml"/> <br/><br/> 
             
             Username: <h:outputText id="stuuser" value="#{loginController.studentLogin.userN}">
             </h:outputText> <br/><br/>
@@ -72,11 +48,11 @@
             Icon: <h:graphicImage library="images" name="#{signUpController.images[loginController.studentLogin.icon]}" style="width:70px;"/>
             
             <br/><br/>
-            <h:commandButton id="update1" value="Update" action="updateStudentAcc.xhtml"/><br/><br/>
+            <h:commandButton id="update1" value="Update" action="updateStudentAcc.xhtml"/>
             <h:commandButton id="back1" value="Back" action="studentHP.xhtml"/>
         </h:form>
             
-
+            </div>
         </div>
 
         <div id="footer">

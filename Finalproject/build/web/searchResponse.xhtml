@@ -48,11 +48,16 @@
 
 
         <div id="main">
+            <p style="font-size:10pt; padding-right:20%; text-align:right;">Click the blue text below to sort!</p>
             <table>
                 <tbody>
                     <ui:repeat var="o" value="#{searchController.universities}" varStatus="status">
                         <tr>
-                            <td colspan="6" style="text-align:left; font-size:20pt;">#{o.univName}</td>
+                            <td colspan="6" style="text-align:left; font-size:20pt;">
+                                <h:form>
+                                    <h:commandLink value="#{o.getUnivName()}" action="#{searchController.getUniversity(o.ID)}"/>
+                                </h:form>
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="6" style="text-align:left">#{o.description}</td>
@@ -61,17 +66,37 @@
                             <th>Majors</th>
                             <th>Sports</th>
                             <th>Housing</th>
-                            <th>Tuition</th>
-                            <th>Average Financial Aid Offered</th>
-                            <th>Graduation Rate</th>
+                            <th>
+                                <h:form>
+                                    <h:commandLink value="Tuition (per 4 years)" action="#{searchController.sortByTuition()}"/>
+                                </h:form>
+                            </th>
+                            <th>
+                                <h:form>
+                                    <h:commandLink value="Sort by Financial Aid" action="#{searchController.sortByAFA()}"/>
+                                </h:form>
+                            </th>
+                            <th>
+                                <h:form>
+                                    <h:commandLink value="Graduation Rate" action="#{searchController.sortByGradRate()}"/>
+                                </h:form>
+                            </th>
                         </tr>
                         <tr>
-                            <td>#{o.majorsConcat}</td>
-                            <td>#{o.sportsConcat}</td>
-                            <td>#{o.housingConcat}</td>
-                            <td>#{o.tuition}</td>
-                            <td>#{o.avgFinAid}</td>
-                            <td>#{o.graduation}</td>
+                            <td>#{o.majors}</td>
+                            <td>#{o.sports}</td>
+                            <td>#{o.housing}</td>
+                            <td>
+                                <h:outputText value="#{o.tuition}">
+                                    <f:convertNumber currencySymbol="$" type="currency" maxFractionDigits="0"/>
+                                </h:outputText>
+                            </td>
+                            <td>
+                                <h:outputText value="#{o.avgFinAid}">
+                                    <f:convertNumber currencySymbol="$" type="currency" maxFractionDigits="0"/>
+                                </h:outputText>
+                            </td>
+                            <td>#{o.graduation}%</td>
                         </tr>  
                         <tr></tr>
                         <tr></tr> 

@@ -16,7 +16,8 @@ import model.UniversityBean;
  */
 public interface ProfileDAO {
     
-    //public ArrayList findByName(String input);
+    public ArrayList findByName(String input);
+    public ArrayList findStuByName(String input);
     public int updateStudentHP(StudentBean aProfile);
     public int updateStudentAcc(StudentAccount aProfile);
     public int updateUnivHP(UniversityBean aProfile);
@@ -27,8 +28,9 @@ public interface ProfileDAO {
     public UniversityBean findHP(int ID);
     public StudentBean findStudentHP(int ID);
     public UniversityAccount findAccount(int ID);
+    public StudentAccount findStudentAccount(int ID);
 //    public int updateProfile(UniversityAccount aProfile);
     public String[] findUserIDs();
-    public String findPassword(String aName);
+    public String[] login(String aName);
     
 }

@@ -5,6 +5,8 @@
  */
 package model;
 
+import dao.ProfileDAO;
+import dao.ProfileDAOImpl;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 
@@ -43,6 +45,13 @@ public class StudentBean {
 
     public int getID() {
         return ID;
+    }
+    
+    public String getStuName(){
+        ProfileDAO profileDAO = new ProfileDAOImpl();
+        StudentAccount aStudentAccount = profileDAO.findStudentAccount(ID);
+        String univName = aStudentAccount.getFullName();
+        return univName;
     }
 
     public void setID(int ID) {

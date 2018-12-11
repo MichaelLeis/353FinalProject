@@ -13,7 +13,9 @@
         </style>
     </h:head>
     <h:body>
-        <h:form>
+        <div id="main">
+            <div id="submain">
+                <h:form class="inputBox">
             <p>Select a Profile Icon!</p>
             <h:graphicImage library="images" name="#{signUpController.images[0]}" style="width:70px;"/>
             <h:graphicImage library="images" name="#{signUpController.images[1]}" style="width:70px;"/>
@@ -27,7 +29,10 @@
                         <f:selectItem itemValue="4"/>
    			<f:selectItem itemValue="5"/>
             </h:selectOneRadio>
-            <h:commandButton id="submtID" value="Sign Up" action="homepage.xhtml"/>
+            <h:commandButton id="submtID" value="Sign Up" action="homepage.xhtml" styleClass="asdf"/>
         </h:form>
+            </div>
+        </div>
+        
     </h:body>
 </html>

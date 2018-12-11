@@ -9,31 +9,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <style>
             @import url('https://fonts.googleapis.com/css?family=Ubuntu');
-            #footer{
-                background-color: #3d445c;
-                color: white;
-                height: 12em;
-                position: fixed;
-                width: 100%;
-                left: 0;
-                bottom: 0;
-            }
-            .section{
-                font-family: 'Ubuntu', sans-serif;
-                list-style-type: none;
-                line-height: 1.5em;
-                float: left;
-                width: 20%;
-                text-align: center;
-            }
-            .section p{
-                font-size: 1.5em;
-                color: #c3c3c3;
-            }
-            .section a{
-                text-decoration: none;
-                color: white;
-            }
+            
         </style>
     </h:head>
     <h:body>
@@ -52,8 +28,9 @@
 
 
         <div id="main">
+            <div id="submain">
 <h2>Update Student Account Information Here:</h2><br/>
-        <h:form>
+        <h:form class="inputBox">
             First Name: <h:inputText id="stufirst" value="#{loginController.studentLogin.first}">
             </h:inputText> <br/><br/>
 
@@ -79,9 +56,10 @@
    			<f:selectItem itemValue="4"/>
             </h:selectOneRadio>
 
-            <h:commandButton id="stuUpdate" value="Update" action="#{loginController.updateStudentAcc()}"/><br/><br/>
+            <h:commandButton id="stuUpdate" value="Update" action="#{loginController.updateStudentAcc()}"/>
             <h:commandButton id="back3" value="Back" action="studentAccountPage.xhtml"/>
         </h:form>
+        </div>
         </div>
 
         <div id="footer">

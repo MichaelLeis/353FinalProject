@@ -2,6 +2,9 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <!--<f:event listener="{loginController.isSAuthenticated}" type="preRenderView" />-->
+
     <h:head>
         <title>LINKED U</title>
         <h:outputStylesheet library="css" name="index.css"/>
@@ -52,36 +55,42 @@
 
 
         <div id="main">
-            <h1><h:outputText id="userID" value="#{loginController.studentLogin.first}"></h:outputText>'s Home Page</h1>
-             <h:form>
-            ACT: <h:outputText id="act1" value="#{loginController.studentHP.ACT}">
-            </h:outputText> <br/><br/>
+            <div id="submain">
+                <h1><h:outputText id="userFD" value="#{loginController.studentLogin.first}"></h:outputText>&#160;<h:outputText id="userID" value="#{loginController.studentLogin.last}"></h:outputText>'s Home Page</h1>
+                <h:form style="background-color: #b2bacf; 
+                        border-radius: 10px; padding: 10px;">
+                    <br/>
+                    <h:graphicImage library="images" name="#{signUpController.images[loginController.studentLogin.icon]}" style="width:70px;"/>
+                    <br/><br/>
+                    ACT: <h:outputText id="act1" value="#{loginController.studentHP.ACT}">
+                    </h:outputText> <br/><br/>
 
-            SAT: <h:outputText id="sat1" value="#{loginController.studentHP.SAT}">
-            </h:outputText> <br/><br/>
+                    SAT: <h:outputText id="sat1" value="#{loginController.studentHP.SAT}">
+                    </h:outputText> <br/><br/>
 
-            PSAT: <h:outputText id="psat1" value="#{loginController.studentHP.PSAT}">
-            </h:outputText> <br/><br/>
+                    PSAT: <h:outputText id="psat1" value="#{loginController.studentHP.PSAT}">
+                    </h:outputText> <br/><br/>
 
-            NMSQT: <h:outputText id="nmsqt1" value="#{loginController.studentHP.NMSQT}">
-            </h:outputText> <br/><br/>
-            
-            Essay: <h:outputText id="essay1" value="#{loginController.studentHP.essay}">
-            </h:outputText> <br/><br/>
+                    NMSQT: <h:outputText id="nmsqt1" value="#{loginController.studentHP.NMSQT}">
+                    </h:outputText> <br/><br/>
 
-            Majors: <h:outputText id="major1" value="#{loginController.studentHP.majors}">
-            </h:outputText> <br/><br/>
+                    Essay: <h:outputText id="essay1" value="#{loginController.studentHP.essay}">
+                    </h:outputText> <br/><br/>
 
-            Video Link: <h:outputText id="videolink1" value="#{loginController.studentHP.videoLink}">
-            </h:outputText> <br/><br/>
+                    Majors: <h:outputText id="major1" value="#{loginController.studentHP.majors}">
+                    </h:outputText> <br/><br/>
 
-            Picture Link: <h:outputText id="picturelink1" value="#{loginController.studentHP.pictureLink}">
-            </h:outputText> <br/><br/>
+                    Video Link: <h:outputText id="videolink1" value="#{loginController.studentHP.videoLink}">
+                    </h:outputText> <br/><br/>
 
-            <h:commandButton id="submitID2" value="Update Home Page" action="updateStudentHP.xhtml"/><br/><br/>
-            <h:commandButton id="accPage" value="Account Page" action="studentAccountPage.xhtml"/><br/><br/>
-        </h:form>
-            
+                    Picture Link: <h:outputText id="picturelink1" value="#{loginController.studentHP.pictureLink}">
+                    </h:outputText> <br/><br/>
+
+                    <h:commandButton id="submitID2" value="Update Home Page" action="updateStudentHP.xhtml" styleClass="asdf"/>
+                    <h:commandButton id="accPage" value="Account Page" action="studentAccountPage.xhtml" styleClass="asdf"/>
+                    <h:commandButton id="login" value="Back to Login" action="login.xhtml" styleClass="asdf"/>
+                </h:form>
+            </div>
         </div>
 
         <div id="footer">

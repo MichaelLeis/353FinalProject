@@ -132,17 +132,85 @@ th {
 *
 */
 #main{
-    width: 100%;
+    height: 86.6%;
+    overflow: auto;
+    font-family: Work Sans;
+}
+#submain{
+    width: 65%;
+    margin-left: 17.5%;
+    height: inherit;
 }
 
 
 
+.inputBox{ 
+    background-color: #b2bacf; 
+    border-radius: 10px; 
+    padding: 1.5%; 
+    font-style: italic; 
+} 
 
+.inputBox input{ 
+  font-style: normal; 
+  padding: 6px; 
+  border: none; 
+  margin-top: 8px; 
+  margin-right: 16px; 
+  font-size: 17px; 
+} 
+
+.inputBox h2{
+    font-style: normal;
+}
+.inputBox .asdf{
+   font-family: Work sans;
+   padding: 6px 10px; 
+   margin-top: 8px; 
+   margin-right: 16px; 
+   background: #ddd;
+   font-size: 17px; 
+   border: none; 
+   cursor: pointer;
+} 
+
+.asdf{
+   font-family: Work sans;
+   padding: 6px 10px; 
+   margin-top: 8px; 
+   margin-right: 16px; 
+   background: #ddd;
+   font-size: 17px; 
+   border: none; 
+   cursor: pointer;
+}
 
 /*
 *
 *   THIS IS THE FOOTER SECTION
 *
 */
-
-
+#footer{
+    background-color: #3d445c;
+    color: white;
+    height: 11em; 
+    width: 100%; 
+    left: 0;
+    bottom: 0;
+}
+.section{
+    font-family: Ubuntu, sans-serif;
+    list-style-type: none;
+    line-height: 1.5em; 
+    float: left;
+    width: 20%; 
+    text-align: center; 
+}
+.section p{
+    font-size: 1.5em;
+    color: #c3c3c3;
+}
+.section a{
+    text-decoration: none;
+    color: white;
+}

@@ -9,31 +9,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <style>
             @import url('https://fonts.googleapis.com/css?family=Ubuntu');
-            #footer{
-                background-color: #3d445c;
-                color: white;
-                height: 12em;
-                position:fixed;
-                width:100%;
-                left:0;
-                bottom:0;
-            }
-            .section{
-                font-family: 'Ubuntu', sans-serif;
-                list-style-type: none;
-                line-height: 1.5em;
-                float: left;
-                width: 20%;
-                text-align: center;
-            }
-            .section p{
-                font-size: 1.5em;
-                color: #c3c3c3;
-            }
-            .section a{
-                text-decoration: none;
-                color: white;
-            }
         </style>
     </h:head>
     <h:body>
@@ -50,17 +25,18 @@
             </div>
         </div>
 
-
         <div id="main">
-            <div id="wrap" style="text-align: center; margin: 0px auto; width: 40%">
+            <div id="submain">
+                <div id="wrap" style="text-align: center; margin: 0px auto; width: 40%">
                 <div id="search" style="float:left; text-align:left; padding:10px;">
-                    <h:form id = "search"> 
-                        Search Here<br/>
+                    <h:form id = "search" class="inputBox" style="background-color: #f6f1f4; padding-top: 50%; "> 
+                        <h2 style="padding-bottom: -1em;">Search Here</h2>
                         <h:inputText id="searchField" value="#{searchController.searchField}" size="50"> 
                         </h:inputText>
-                        <h:commandButton id="submtID" value="Find Schools" action="#{searchController.searchUniversities()}"/>
+                        <h:commandButton id="submtID" value="Find Schools" action="#{searchController.searchUniversities()}" styleClass="asdf" />
                     </h:form>
                 </div>
+            </div>
             </div>
         </div>
 

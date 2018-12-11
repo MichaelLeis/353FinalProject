@@ -4,36 +4,11 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>LINKED U</title>
-        <h:outputStylesheet library="css" name="style.css"/>
+        <h:outputStylesheet library="css" name="index.css"/>
         <link href="https://fonts.googleapis.com/css?family=Oxygen|Work+Sans" rel="stylesheet"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <style>
             @import url('https://fonts.googleapis.com/css?family=Ubuntu');
-            #footer{
-                background-color: #3d445c;
-                color: white;
-                height: 12em;
-                position: fixed;
-                width: 100%;
-                left: 0;
-                bottom: 0;
-            }
-            .section{
-                font-family: 'Ubuntu', sans-serif;
-                list-style-type: none;
-                line-height: 1.5em;
-                float: left;
-                width: 20%;
-                text-align: center;
-            }
-            .section p{
-                font-size: 1.5em;
-                color: #c3c3c3;
-            }
-            .section a{
-                text-decoration: none;
-                color: white;
-            }
         </style>
     </h:head>
     <h:body>
@@ -50,10 +25,10 @@
             </div>
         </div>
 
-
         <div id="main">
-            <h2>Students Sign Up Here!</h2><br/>
-        <h:form>
+            <div id="submain">
+                <h2>Students Sign Up Here!</h2><br/>
+        <h:form class="inputBox">
             First Name: <h:inputText id="firstID" value="#{signUpController.studentModel.first}">
                 <f:validateLength minimum="2" maximum ="25"/>
             </h:inputText> <br/><br/>
@@ -89,11 +64,11 @@
    			<f:selectItem itemValue="5"/>
             </h:selectOneRadio>
             
-            <h:commandButton id="submitID1" value="Sign Up" action="#{signUpController.createStudentProfile()}"/>
+            <h:commandButton id="submitID1" value="Sign Up" action="#{signUpController.createStudentProfile()}" styleClass="asdf"/>
             <br/><br/><br/>
             Note: the password provided must be 6-20 characters, include atleast 1 digit (0-9), include at least 1 upper and lower case letter, and 1 special character (@#$%).
         </h:form>
-
+            </div>
         </div>
 
         <div id="footer">

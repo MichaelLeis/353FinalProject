@@ -13,10 +13,6 @@
                 background-color: #3d445c;
                 color: white;
                 height: 12em;
-                position: fixed;
-                width: 100%;
-                left: 0;
-                bottom: 0;
             }
             .section{
                 font-family: 'Ubuntu', sans-serif;
@@ -52,27 +48,54 @@
 
 
         <div id="main">
-            <div id="submain">
-                
-                <h:form class="inputBox">
-                    <h2>Login Here!</h2>
-                    Username: <h:inputText id="Uname" value="#{loginController.username}"> 
-                    </h:inputText> <br/><br/>
-                    Password: <h:inputSecret id="Passwrd" value="#{loginController.password}" > 
-                    </h:inputSecret> <br/><br/>
-                    <h:commandButton id="submitID" value="Login" action="#{loginController.checkPassword()}" styleClass="asdf"/>
-                    <br/><br/><br/>
-                    Don't have a login? Sign up below.
-                    <h:commandButton id="submtID" value="Student Sign Up" action="studentSignUp.xhtml" styleClass="asdf"/>
-                    <h:commandButton id="submtID2" value="University Sign Up" action="universitySignUp.xhtml" styleClass="asdf"/>
-                    <br/><br/>
-                    <h:commandButton id="search" value="Search for Universities" action="searchUniv.xhtml" styleClass="asdf"/>
-                    <h:commandButton id="searchS" value="Search for Students" action="searchStudent.xhtml" styleClass="asdf"/>
-                </h:form>
+            <div id="wrap" style="text-align: center; margin: 0px auto; width: 80%">
+                <div id="search" style="float:left; text-align:left; padding:10px;">
+                    <p style="font-size:10pt; padding-right:13%; text-align:right;">Click the blue text below to sort!</p>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th width="200">Name</th>
+                                <th width="400">Majors</th>
+                                <th width="70">
+                                    <h:form>
+                                        <h:commandLink value="ACT"/>
+                                    </h:form>
+                                </th>
+                                <th width="70">
+                                    <h:form>
+                                        <h:commandLink value="SAT"/>
+                                    </h:form>
+                                </th>
+                                <th width="70">
+                                    <h:form>
+                                        <h:commandLink value="PSAT"/>
+                                    </h:form>
+                                </th>
+                                <th width="70">
+                                    <h:form>
+                                        <h:commandLink value="NMSQT"/>
+                                    </h:form>
+                                </th>
+                            </tr>
+                            <ui:repeat var="o" value="#{searchController.students}" varStatus="status">
+                                <tr>
+                                    <td>
+                                        <h:form>
+                                            <h:commandLink value="#{o.getStuName()}" action="#{searchController.getStudent(o.ID)}" style="padding:0"/>
+                                        </h:form>
+                                    </td>
+                                    <td>#{o.majors}</td>
+                                    <td>#{o.ACT}</td>
+                                    <td>#{o.SAT}</td>
+                                    <td>#{o.PSAT}</td>
+                                    <td>#{o.NMSQT}</td>
+                                </tr>  
+                                <tr></tr>
+                            </ui:repeat>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            
-            
-
         </div>
 
         <div id="footer">
@@ -102,4 +125,3 @@
         </div>
     </h:body>
 </html>
-

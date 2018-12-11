@@ -82,7 +82,8 @@ public class SignUpController {
             //theModel2.sendEmail(theModel);
             LoginController newLogin = new LoginController();
             newLogin.changeID(newID);
-            return "universityHP.xhtml";
+            newLogin.clearPage();
+            return newLogin.showUnivHP();
         } else {
             return "searchResponse.xhtml";
         }
@@ -104,7 +105,10 @@ public class SignUpController {
         int rowCount = aProfileDAO.createStudentAccount(studentModel); // Doing anything with the object after this?
         if (rowCount == 1) {
             //theModel2.sendEmail(theModel);
-            return "studentHP.xhtml";
+            LoginController newLogin = new LoginController();
+            newLogin.clearPage();
+            newLogin.changeID(newID);
+            return newLogin.showStudentHP();
         } else {
             return "searchResponse.xhtml";
         }

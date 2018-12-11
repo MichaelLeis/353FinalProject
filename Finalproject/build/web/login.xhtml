@@ -52,20 +52,25 @@
 
 
         <div id="main">
-            <h2>Login Here!</h2>
-        <h:form>
-            Username: <h:inputText id="Uname" value="#{loginController.username}"> 
-                </h:inputText> <br/><br/>
-            Password: <h:inputSecret id="Passwrd" value="#{loginController.password}"> 
-                </h:inputSecret> <br/><br/>
-            <h:commandButton id="submitID" value="Login" action="#{loginController.checkPassword()}"/>
-            <br/><br/><br/>
-            Don't have a login? Sign up below.
-            <h:commandButton id="submtID" value="Student Sign Up" action="studentSignUp.xhtml"/>
-            <h:commandButton id="submtID2" value="University Sign Up" action="universitySignUp.xhtml"/>
-            <br/><br/>
-            <h:commandButton id="search" value="Search for Universities" action="index.xhtml"/>
-        </h:form>
+            <div id="submain">
+                
+                <h:form class="inputBox">
+                    <h2>Login Here!</h2>
+                    Username: <h:inputText id="Uname" value="#{loginController.username}"> 
+                    </h:inputText> <br/><br/>
+                    Password: <h:inputSecret id="Passwrd" value="#{loginController.password}" > 
+                    </h:inputSecret> <br/><br/>
+                    <h:commandButton id="submitID" value="Login" action="#{loginController.checkPassword()}" styleClass="asdf"/>
+                    <br/><br/><br/>
+                    Don't have a login? Sign up below.
+                    <h:commandButton id="submtID" value="Student Sign Up" action="studentSignUp.xhtml" styleClass="asdf"/>
+                    <h:commandButton id="submtID2" value="University Sign Up" action="universitySignUp.xhtml" styleClass="asdf"/>
+                    <br/><br/>
+                    <h:commandButton id="search" value="Search for Universities" action="searchUniv.xhtml" styleClass="asdf"/>
+                    <h:commandButton id="searchS" value="Search for Students" action="searchStudent.xhtml" styleClass="asdf"/>
+                </h:form>
+            </div>
+            
             
 
         </div>

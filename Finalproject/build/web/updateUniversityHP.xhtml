@@ -9,30 +9,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <style>
             @import url('https://fonts.googleapis.com/css?family=Ubuntu');
-            #footer{
-                background-color: #3d445c;
-                color: white;
-                height: 12em;
-                width: 100%;
-                left: 0;
-                bottom: 0;
-            }
-            .section{
-                font-family: 'Ubuntu', sans-serif;
-                list-style-type: none;
-                line-height: 1.5em;
-                float: left;
-                width: 20%;
-                text-align: center;
-            }
-            .section p{
-                font-size: 1.5em;
-                color: #c3c3c3;
-            }
-            .section a{
-                text-decoration: none;
-                color: white;
-            }
         </style>
     </h:head>
     <h:body>
@@ -51,18 +27,19 @@
 
 
         <div id="main">
+            <div id="submain"> 
 <h2>Update:</h2><br/>
-        <h:form>  
-            Description: <h:inputTextarea id="essay2" value="#{loginController.univHP.description}" cols="30" rows="5">
+        <h:form class="inputBox">  
+            Description: <br/><h:inputTextarea id="essay2" value="#{loginController.univHP.description}" cols="30" rows="5">
             </h:inputTextarea> <br/><br/>
 
-            Major(s): <h:inputTextarea id="majors32" value="#{loginController.univHP.majors}" cols="30" rows="5">
+            Major(s): <br/><h:inputTextarea id="majors32" value="#{loginController.univHP.majors}" cols="30" rows="5">
             </h:inputTextarea> <br/><br/>
 
-            Sport(s): <h:inputTextarea id="sport2" value="#{loginController.univHP.sports}" cols="30" rows="5">
+            Sport(s): <br/><h:inputTextarea id="sport2" value="#{loginController.univHP.sports}" cols="30" rows="5">
             </h:inputTextarea> <br/><br/>
 
-            Housing: <h:inputTextarea id="housing2" value="#{loginController.univHP.housing}" cols="30" rows="5">
+            Housing: <br/><h:inputTextarea id="housing2" value="#{loginController.univHP.housing}" cols="30" rows="5">
             </h:inputTextarea> <br/><br/>
             
             Tuition: <h:inputText id="tuition2" value="#{loginController.univHP.tuition}">
@@ -77,6 +54,7 @@
             <h:commandButton id="submitID1" value="Update" action="#{loginController.updateUnivHP()}"/>
             <h:commandButton id="back3" value="Back" action="universityHP.xhtml"/>
         </h:form>
+            </div>
         </div>
 
         <div id="footer">

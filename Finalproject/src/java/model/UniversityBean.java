@@ -5,6 +5,8 @@
  */
 package model;
 
+import dao.ProfileDAO;
+import dao.ProfileDAOImpl;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.faces.bean.ManagedBean;
@@ -43,6 +45,13 @@ public class UniversityBean {
         this.ID = ID;
     }
 
+    public String getUnivName(){
+        ProfileDAO profileDAO = new ProfileDAOImpl();
+        UniversityAccount aUniversityAccount = profileDAO.findAccount(ID);
+        String univName = aUniversityAccount.getUniversityN();
+        return univName;
+    }
+    
     public String getMajors() {
         return majors;
     }

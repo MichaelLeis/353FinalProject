@@ -24,6 +24,7 @@ public class StudentAccount {
     private String password;
     private String userN;
     private int icon;
+    private String fullName;
     
     public StudentAccount() {
     }
@@ -38,6 +39,15 @@ public class StudentAccount {
         this.icon = icon;
     }
 
+    public String getFullName() {
+        fullName = first + " " + last;
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+    
     public int getIcon() {
         return icon;
     }

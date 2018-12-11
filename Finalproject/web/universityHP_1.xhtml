@@ -2,6 +2,9 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <!--<f:event listener="{loginController.isUAuthenticated}" type="preRenderView" />-->
+    
     <h:head>
         <title>LINKED U</title>
         <h:outputStylesheet library="css" name="index.css"/>
@@ -27,16 +30,32 @@
 
         <div id="main">
             <div id="submain">
-                <div id="wrap" style="text-align: center; margin: 0px auto; width: 40%">
-                <div id="search" style="float:left; text-align:left; padding:10px;">
-                    <h:form id = "search" class="inputBox" style="background-color: #f6f1f4; padding-top: 50%; "> 
-                        <h2 style="padding-bottom: -1em;">Search Here</h2>
-                        <h:inputText id="searchField" value="#{searchController.searchField}" size="50"> 
-                        </h:inputText>
-                        <h:commandButton id="submtID" value="Find Schools" action="#{searchController.searchUniversities()}" styleClass="asdf" />
-                    </h:form>
-                </div>
-            </div>
+                   <h1><h:outputText id="userID" value="#{loginController.univLogin.universityN}"></h:outputText>'s Home Page</h1>
+             <h:form style="background-color: #b2bacf; 
+    border-radius: 10px; padding: 10px;">
+            Description: <h:outputText id="essay" value="#{loginController.univHP.description}">
+            </h:outputText> <br/><br/>
+
+            Major(s): <h:outputText id="majors3" value="#{loginController.univHP.majors}">
+            </h:outputText> <br/><br/>
+
+            Sport(s): <h:outputText id="sport" value="#{loginController.univHP.sports}">
+            </h:outputText> <br/><br/>
+
+            Housing: <h:outputText id="housing" value="#{loginController.univHP.housing}">
+            </h:outputText> <br/><br/>
+            
+            Tuition: $<h:outputText id="tuition" value="#{loginController.univHP.tuition}">
+            </h:outputText> <br/><br/>
+            
+            Graduation Rate: <h:outputText id="gradRate" value="#{loginController.univHP.graduation}">
+            </h:outputText>% <br/><br/>
+            
+            Average Financial Aid: $<h:outputText id="finaid" value="#{loginController.univHP.avgFinAid}">
+            </h:outputText> <br/><br/>
+
+            <h:commandButton id="back" value="Back to Search" action="searchResponse.xhtml" styleClass="asdf"/>
+        </h:form>
             </div>
         </div>
 

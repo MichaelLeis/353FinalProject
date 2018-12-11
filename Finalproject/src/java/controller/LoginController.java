@@ -22,16 +22,20 @@ public class LoginController {
 
     private String username;
     private String password;
-    private String pass2;
-    private String email;
-    private String jobTitle;
-    private int attempts = 0;
-    private UniversityAccount univLogin;
-    private StudentAccount studentLogin;
-    private UniversityBean univHP;
-    private StudentBean studentHP;
-    private boolean logIn;
-    private static int ID = 1;
+    private static UniversityAccount univLogin;
+    private static StudentAccount studentLogin;
+    private static UniversityBean univHP;
+    private static StudentBean studentHP;
+    private static int loginID;
+    private static int ID;
+
+    public static int getLoginID() {
+        return loginID;
+    }
+
+    public static void setLoginID(int loginID) {
+        LoginController.loginID = loginID;
+    }
 
     public int getID() {
         return ID;
@@ -41,11 +45,27 @@ public class LoginController {
         ID = number;
     }
 
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public UniversityAccount getUnivLogin() {
+        return univLogin;
+    }
+
+    public void setUnivLogin(UniversityAccount univLogin) {
+        this.univLogin = univLogin;
+    }
+
+    public StudentAccount getStudentLogin() {
+        return studentLogin;
+    }
+
+    public void setStudentLogin(StudentAccount studentLogin) {
+        this.studentLogin = studentLogin;
+    }
+
     public UniversityBean getUnivHP() {
-        if (univHP.getMajors() == null) {
-            ProfileDAO profileDAO = new ProfileDAOImpl();
-            univHP = profileDAO.findHP(ID);
-        }
         return univHP;
     }
 
@@ -61,51 +81,29 @@ public class LoginController {
         this.studentHP = studentHP;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getJobTitle() {
-        return jobTitle;
-    }
-
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
-    }
-
-    public boolean isLogIn() {
-        return logIn;
-    }
-
-    public void setLogIn(boolean logIn) {
-        this.logIn = logIn;
+    public void clearPage() {
+        univLogin = null;
+        studentLogin = null;
+        univHP = null;
+        studentHP = null;
     }
 
     public LoginController() {
-        univLogin = new UniversityAccount();
-        studentLogin = new StudentAccount();
-        univHP = new UniversityBean();
-        studentHP = new StudentBean();
     }
 
-    public UniversityAccount getUnivLogin() {
-        if (univLogin.getUniversityN() == null) {
-            ProfileDAO profileDAO = new ProfileDAOImpl();
-            univLogin = profileDAO.findAccount(ID);
-        }
-        return univLogin;
+    public String showUnivHP() {
+        ProfileDAO profileDAO = new ProfileDAOImpl();
+        univHP = profileDAO.findHP(ID);
+        univLogin = profileDAO.findAccount(ID);
+        return "universityHP.xhtml";
     }
-
-    public void setUnivLogin(UniversityAccount univLogin) {
-        this.univLogin = univLogin;
+    
+    public String showStudentHP() {
+        ProfileDAO profileDAO = new ProfileDAOImpl();
+        studentHP = profileDAO.findStudentHP(ID);
+        studentLogin = profileDAO.findStudentAccount(ID);
+        return "studentHP.xhtml";
     }
 
     public String getUsername() {
@@ -124,43 +122,58 @@ public class LoginController {
         this.password = password;
     }
 
-    public int getAttempts() {
-        return attempts;
-    }
-
-    public void setAttempts(int attempts) {
-        this.attempts = attempts;
-    }
+//    public int getAttempts() {
+//        return attempts;
+//    }
+//
+//    public void setAttempts(int attempts) {
+//        this.attempts = attempts;
+//    }
 
     public String checkPassword() {
         ProfileDAO profileDAO = new ProfileDAOImpl();
-        String checkPass = profileDAO.findPassword(username);
+        String[] login = profileDAO.login(username);
 
 //        PassHash hash = new PassHash();
 //        hash.hashPass(password);
 //        String hashedPass = hash.hashPass(password);
-        if (checkPass.equals(password)) {
-            logIn = true;
-            univHP = profileDAO.findHP(ID);
-            univLogin = profileDAO.findAccount(ID);
-            return "universityHP.xhtml";
-        } else {
-            return "LoginBad.xhtml";
+        int thisID = Integer.parseInt(login[1]);
+        if (login[0].equals(password)) {
+            if (login[2].equals("univ")) {
+                ID = thisID;
+                loginID = thisID;
+                return showUnivHP();
+            }
+            if (login[2].equals("stu ")) {
+                ID = thisID;
+                loginID = thisID;
+                return showStudentHP();
+            }
         }
+        return "LoginBad.xhtml";
     }
 
-    public String isAuthenticated(ComponentSystemEvent event) {
-        String navi = null;
-
-        if (logIn == false) {
-
-            FacesContext fc = FacesContext.getCurrentInstance();
-            ConfigurableNavigationHandler nav = (ConfigurableNavigationHandler) fc.getApplication().getNavigationHandler();
-            nav.performNavigation("access-denied?faces-redirect=true");
-        }
-        return navi;
-
-    }
+//    public String isSAuthenticated(ComponentSystemEvent event) {
+//        String navi = null;
+//
+//        if (loginID != studentHP.getID()) {
+//            FacesContext fc = FacesContext.getCurrentInstance();
+//            ConfigurableNavigationHandler nav = (ConfigurableNavigationHandler) fc.getApplication().getNavigationHandler();
+//            nav.performNavigation("access-denied?faces-redirect=true");
+//        }
+//        return navi;
+//    }
+//
+//    public String isUAuthenticated(ComponentSystemEvent event) {
+//        String navi = null;
+//
+//        if (loginID != univHP.getID()) {
+//            FacesContext fc = FacesContext.getCurrentInstance();
+//            ConfigurableNavigationHandler nav = (ConfigurableNavigationHandler) fc.getApplication().getNavigationHandler();
+//            nav.performNavigation("access-denied?faces-redirect=true");
+//        }
+//        return navi;
+//    }
 
     public String updateStudentAcc() {
         ProfileDAO aProfileDAO = new ProfileDAOImpl();    // Creating a new object each time.
@@ -206,40 +219,10 @@ public class LoginController {
         }
     }
 
-//    public String updateProfile() {
-//        ProfileDAO aProfileDAO = new ProfileDAOImpl();    // Creating a new object each time.
-//
-//        if (checkPasswords() == false) {
-//            return "error2.1.xhtml";
+//    private boolean checkPasswords() {
+//        if (univLogin.getPassword().equals(pass2)) {
+//            return true;
 //        }
-//
-//        int rowCount = aProfileDAO.updateProfile(univLogin); // Doing anything with the object after this?
-//        if (rowCount == 1) {
-//            return "update.xhtml";
-//        } else {
-//            return "error.xtml";
-//        }
+//        return false;
 //    }
-    public String getPass2() {
-        return pass2;
-    }
-
-    public void setPass2(String pass2) {
-        this.pass2 = pass2;
-    }
-
-    private boolean checkPasswords() {
-        if (univLogin.getPassword().equals(pass2)) {
-            return true;
-        }
-        return false;
-    }
-
-    public StudentAccount getStudentLogin() {
-        return studentLogin;
-    }
-
-    public void setStudentLogin(StudentAccount studentLogin) {
-        this.studentLogin = studentLogin;
-    }
 }
