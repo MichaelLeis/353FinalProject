@@ -28,6 +28,11 @@ public class LoginController {
     private static StudentBean studentHP;
     private static int loginID;
     private static int ID;
+    
+    public String logout(){ //added this
+        setLoginID(-1);
+        return "login.xhtml";
+    }
 
     public static int getLoginID() {
         return loginID;
@@ -35,6 +40,10 @@ public class LoginController {
 
     public static void setLoginID(int loginID) {
         LoginController.loginID = loginID;
+    }
+    
+    public void changeLoginID(int number) { //added this
+        loginID = number;
     }
 
     public int getID() {
@@ -81,7 +90,6 @@ public class LoginController {
         this.studentHP = studentHP;
     }
 
-
     public void clearPage() {
         univLogin = null;
         studentLogin = null;
@@ -104,6 +112,19 @@ public class LoginController {
         studentHP = profileDAO.findStudentHP(ID);
         studentLogin = profileDAO.findStudentAccount(ID);
         return "studentHP.xhtml";
+    }
+    
+    public String showUnivSearchHP() {
+        ProfileDAO profileDAO = new ProfileDAOImpl();
+        univHP = profileDAO.findHP(ID);
+        univLogin = profileDAO.findAccount(ID);
+        return "universityHP_1.xhtml";
+    }
+    public String showStudentSearchHP() {
+        ProfileDAO profileDAO = new ProfileDAOImpl();
+        studentHP = profileDAO.findStudentHP(ID);
+        studentLogin = profileDAO.findStudentAccount(ID);
+        return "studentHP_1.xhtml";
     }
 
     public String getUsername() {
@@ -153,27 +174,27 @@ public class LoginController {
         return "LoginBad.xhtml";
     }
 
-//    public String isSAuthenticated(ComponentSystemEvent event) {
-//        String navi = null;
-//
-//        if (loginID != studentHP.getID()) {
-//            FacesContext fc = FacesContext.getCurrentInstance();
-//            ConfigurableNavigationHandler nav = (ConfigurableNavigationHandler) fc.getApplication().getNavigationHandler();
-//            nav.performNavigation("access-denied?faces-redirect=true");
-//        }
-//        return navi;
-//    }
-//
-//    public String isUAuthenticated(ComponentSystemEvent event) {
-//        String navi = null;
-//
-//        if (loginID != univHP.getID()) {
-//            FacesContext fc = FacesContext.getCurrentInstance();
-//            ConfigurableNavigationHandler nav = (ConfigurableNavigationHandler) fc.getApplication().getNavigationHandler();
-//            nav.performNavigation("access-denied?faces-redirect=true");
-//        }
-//        return navi;
-//    }
+    public String isSAuthenticated(ComponentSystemEvent event) {
+        String navi = null;
+
+        if (loginID != studentHP.getID()) {
+            FacesContext fc = FacesContext.getCurrentInstance();
+            ConfigurableNavigationHandler nav = (ConfigurableNavigationHandler) fc.getApplication().getNavigationHandler();
+            nav.performNavigation("access-denied?faces-redirect=true");
+        }
+        return navi;
+    }
+
+    public String isUAuthenticated(ComponentSystemEvent event) {
+        String navi = null;
+
+        if (loginID != univHP.getID()) {
+            FacesContext fc = FacesContext.getCurrentInstance();
+            ConfigurableNavigationHandler nav = (ConfigurableNavigationHandler) fc.getApplication().getNavigationHandler();
+            nav.performNavigation("access-denied?faces-redirect=true");
+        }
+        return navi;
+    }
 
     public String updateStudentAcc() {
         ProfileDAO aProfileDAO = new ProfileDAOImpl();    // Creating a new object each time.

@@ -34,11 +34,11 @@
     </h:head>
     <h:body>
         <div class="header">
-            <a href="#default" class="logo">LINKEDU</a>
+            <a href="faces/login.xhtml" class="logo">LINKEDU</a>
             <div class="header-right">
-                <a class="active" href="#home">Home</a>
-                <a href="#contact">Contact</a>
-                <a href="#about">About</a>
+                <a class="active" href="faces/login.xhtml">Home</a>
+                <a href="faces/contact.xhtml">Contact</a>
+                <a href="faces/about.xhtml">About</a>
                 <div class="searchContainer">
                     <input type="text" placeholder="Search.."></input>
                     <button type="submit"><i class="fa fa-search"></i></button>
@@ -58,22 +58,22 @@
                                 <th width="400">Majors</th>
                                 <th width="70">
                                     <h:form>
-                                        <h:commandLink value="ACT"/>
+                                        <h:commandLink value="ACT" action="#{searchController.sortByACT()}"/>
                                     </h:form>
                                 </th>
                                 <th width="70">
                                     <h:form>
-                                        <h:commandLink value="SAT"/>
+                                        <h:commandLink value="SAT" action="#{searchController.sortBySAT()}"/>
                                     </h:form>
                                 </th>
                                 <th width="70">
                                     <h:form>
-                                        <h:commandLink value="PSAT"/>
+                                        <h:commandLink value="PSAT" action="#{searchController.sortByPSAT()}"/>
                                     </h:form>
                                 </th>
                                 <th width="70">
                                     <h:form>
-                                        <h:commandLink value="NMSQT"/>
+                                        <h:commandLink value="NMSQT" action="#{searchController.sortByNMSQT()}"/>
                                     </h:form>
                                 </th>
                             </tr>

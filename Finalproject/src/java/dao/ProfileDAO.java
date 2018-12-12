@@ -25,6 +25,7 @@ public interface ProfileDAO {
     public int createUnivAccount(UniversityAccount aProfile);
     public int createStudentAccount(StudentAccount aProfile);
     public int getNewID();
+   // public int getNewLoginID();
     public UniversityBean findHP(int ID);
     public StudentBean findStudentHP(int ID);
     public UniversityAccount findAccount(int ID);

@@ -27,6 +27,10 @@ public class SearchController {
     int tuitionSort = 0;
     int afaSort = 0;
     int gradRateSort = 0;
+    int actSort = 0;
+    int satSort = 0;
+    int psatSort = 0;
+    int nmsqtSort = 0;
 
     public SearchController() {
 
@@ -70,14 +74,14 @@ public class SearchController {
         LoginController newLogin = new LoginController();
         newLogin.changeID(ID);
         newLogin.clearPage();
-        return "studentHP_1.xhtml";
+        return newLogin.showStudentSearchHP();
     }
     
     public String getUniversity(int ID) {
         LoginController newLogin = new LoginController();
         newLogin.changeID(ID);
         newLogin.clearPage();
-        return "universityHP_1.xhtml";
+        return newLogin.showUnivSearchHP();
     }
 
     public String sortByTuition() {
@@ -191,6 +195,154 @@ public class SearchController {
         return "searchResponse.xhtml";
     }
 
+    public String sortByACT() {
+        ArrayList<StudentBean> temp = new ArrayList<StudentBean>();
+        int size = students.size();
+        int[] myArray = new int[size];
+        for (int i = 0; i < size; i++) {
+            myArray[i] = i;
+        }
+        int num;
+        for (int i = 1; i < size; i++) {
+            for (int x = i; x > 0; x--) {
+                if (actSort == 0) {
+                    if (students.get(myArray[x]).getACT() > students.get(myArray[x - 1]).getACT()) {
+                        num = myArray[x];
+                        myArray[x] = myArray[x - 1];
+                        myArray[x - 1] = num;
+                    }
+                } else {
+                    if (students.get(myArray[x]).getACT() < students.get(myArray[x - 1]).getACT()) {
+                        num = myArray[x];
+                        myArray[x] = myArray[x - 1];
+                        myArray[x - 1] = num;
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < myArray.length; i++) {
+            temp.add(students.get(myArray[i]));
+        }
+        students = temp;
+        if (actSort == 0) {
+            actSort = 1;
+        } else {
+            actSort = 0;
+        }
+        return "searchStuResponse.xhtml";
+    }
+    
+    public String sortBySAT() {
+        ArrayList<StudentBean> temp = new ArrayList<StudentBean>();
+        int size = students.size();
+        int[] myArray = new int[size];
+        for (int i = 0; i < size; i++) {
+            myArray[i] = i;
+        }
+        int num;
+        for (int i = 1; i < size; i++) {
+            for (int x = i; x > 0; x--) {
+                if (satSort == 0) {
+                    if (students.get(myArray[x]).getSAT() > students.get(myArray[x - 1]).getSAT()) {
+                        num = myArray[x];
+                        myArray[x] = myArray[x - 1];
+                        myArray[x - 1] = num;
+                    }
+                } else {
+                    if (students.get(myArray[x]).getSAT() < students.get(myArray[x - 1]).getSAT()) {
+                        num = myArray[x];
+                        myArray[x] = myArray[x - 1];
+                        myArray[x - 1] = num;
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < myArray.length; i++) {
+            temp.add(students.get(myArray[i]));
+        }
+        students = temp;
+        if (satSort == 0) {
+            satSort = 1;
+        } else {
+            satSort = 0;
+        }
+        return "searchStuResponse.xhtml";
+    }
+    
+    public String sortByPSAT() {
+        ArrayList<StudentBean> temp = new ArrayList<StudentBean>();
+        int size = students.size();
+        int[] myArray = new int[size];
+        for (int i = 0; i < size; i++) {
+            myArray[i] = i;
+        }
+        int num;
+        for (int i = 1; i < size; i++) {
+            for (int x = i; x > 0; x--) {
+                if (psatSort == 0) {
+                    if (students.get(myArray[x]).getPSAT() > students.get(myArray[x - 1]).getPSAT()) {
+                        num = myArray[x];
+                        myArray[x] = myArray[x - 1];
+                        myArray[x - 1] = num;
+                    }
+                } else {
+                    if (students.get(myArray[x]).getPSAT() < students.get(myArray[x - 1]).getPSAT()) {
+                        num = myArray[x];
+                        myArray[x] = myArray[x - 1];
+                        myArray[x - 1] = num;
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < myArray.length; i++) {
+            temp.add(students.get(myArray[i]));
+        }
+        students = temp;
+        if (psatSort == 0) {
+            psatSort = 1;
+        } else {
+            psatSort = 0;
+        }
+        return "searchStuResponse.xhtml";
+    }
+    
+    public String sortByNMSQT() {
+        ArrayList<StudentBean> temp = new ArrayList<StudentBean>();
+        int size = students.size();
+        int[] myArray = new int[size];
+        for (int i = 0; i < size; i++) {
+            myArray[i] = i;
+        }
+        int num;
+        for (int i = 1; i < size; i++) {
+            for (int x = i; x > 0; x--) {
+                if (nmsqtSort == 0) {
+                    if (students.get(myArray[x]).getNMSQT() > students.get(myArray[x - 1]).getNMSQT()) {
+                        num = myArray[x];
+                        myArray[x] = myArray[x - 1];
+                        myArray[x - 1] = num;
+                    }
+                } else {
+                    if (students.get(myArray[x]).getNMSQT() < students.get(myArray[x - 1]).getNMSQT()) {
+                        num = myArray[x];
+                        myArray[x] = myArray[x - 1];
+                        myArray[x - 1] = num;
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < myArray.length; i++) {
+            temp.add(students.get(myArray[i]));
+        }
+        students = temp;
+        if (nmsqtSort == 0) {
+            nmsqtSort = 1;
+        } else {
+            nmsqtSort = 0;
+        }
+        return "searchStuResponse.xhtml";
+    }
+    
     public String searchUniversities() {
         if (universities != null) {
             universities.clear();
