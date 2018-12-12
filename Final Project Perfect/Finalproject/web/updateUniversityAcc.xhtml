@@ -1,0 +1,85 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>LINKED U</title>
+        <h:outputStylesheet library="css" name="index.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Oxygen|Work+Sans" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+            
+        </style>
+    </h:head>
+    <h:body>
+        <div class="header">
+            <a href="faces/login.xhtml" class="logo">LINKEDU</a>
+            <div class="header-right">
+                <a class="active" href="faces/login.xhtml">Home</a>
+                <a href="faces/contact.xhtml">Contact</a>
+                <a href="faces/about.xhtml">About</a>
+         
+                <div class="searchContainer">
+                    <input type="text" placeholder="Search.."></input>
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="main">
+            <div id="submain">
+<h2>Update University Account Information Here:</h2><br/>
+        <h:form class="inputBox">
+            First Name: <h:inputText id="univfirst1" value="#{loginController.univLogin.first}">
+            </h:inputText> <br/><br/>
+
+            Last Name: <h:inputText id="univlast1" value="#{loginController.univLogin.last}">
+            </h:inputText> <br/><br/>
+
+            Email: <h:inputText id="univemail1" value="#{loginController.univLogin.email}">
+            </h:inputText> <br/><br/>
+
+            Username: <h:inputText id="univuser11" value="#{loginController.univLogin.userN}">
+            </h:inputText> <br/><br/>
+            
+            Job Title: <h:inputText id="univjt1" value="#{loginController.univLogin.jobTitle}">
+            </h:inputText> <br/><br/>
+            
+            University Name: <h:inputText id="univuname1" value="#{loginController.univLogin.universityN}">
+            </h:inputText> <br/><br/>
+
+            <h:commandButton id="univUpdate1" value="Update" action="#{loginController.updateUniversityAcc()}"/>
+            <h:commandButton id="univback1" value="Back" action="universityAccountPage.xhtml"/>
+        </h:form>
+        </div>
+        </div>
+
+        <div id="footer">
+            <ul class="section">
+                <p>Information</p>
+                <li><a href="">About</a></li>
+                <li><a href="">The Team</a></li>
+                <li><a href="">Privacy Policy</a></li>
+            </ul>
+            <ul class="section">
+                <p>Contact</p>
+                <li><a href="">Ask Us Anything</a></li>
+                <li><a href="">Advertisments</a></li>
+            </ul>
+            <ul class="section">
+                <p>Friends</p>
+                <li><a href="">person1</a></li>
+                <li><a href="">person2</a></li>
+                <li><a href="">person3</a></li>
+            </ul>
+            <ul class="section">
+                <p>Follow us</p>
+                <li><a href="">FaceBook</a></li>
+                <li><a href="">Twitter</a></li>
+                <li><a href="">Instagram</a></li>
+            </ul>
+        </div>
+    </h:body>
+</html>

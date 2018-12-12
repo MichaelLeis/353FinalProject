@@ -1,0 +1,93 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <!--<f:event listener="{loginController.isUAuthenticated}" type="preRenderView" />-->
+    
+    <h:head>
+        <title>LINKED U</title>
+        <h:outputStylesheet library="css" name="index.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Oxygen|Work+Sans" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+        </style>
+    </h:head>
+    <h:body>
+        <div class="header">
+            <a href="faces/login.xhtml" class="logo">LINKEDU</a>
+            <div class="header-right">
+                <a class="active" href="faces/login.xhtml">Home</a>
+                <a href="faces/contact.xhtml">Contact</a>
+                <a href="faces/about.xhtml">About</a>
+               
+                <div class="searchContainer">
+                    <input type="text" placeholder="Search.."></input>
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="main">
+            <div id="submain">
+                   <h1><h:outputText id="userID" value="#{loginController.univLogin.universityN}"></h:outputText>'s Home Page</h1>
+             <h:form style="background-color: #b2bacf; 
+    border-radius: 10px; padding: 10px;">
+            Description: <h:outputText id="essay" value="#{loginController.univHP.description}">
+            </h:outputText> <br/><br/>
+
+            Major(s): <h:outputText id="majors3" value="#{loginController.univHP.majors}">
+            </h:outputText> <br/><br/>
+
+            Sport(s): <h:outputText id="sport" value="#{loginController.univHP.sports}">
+            </h:outputText> <br/><br/>
+
+            Housing: <h:outputText id="housing" value="#{loginController.univHP.housing}">
+            </h:outputText> <br/><br/>
+            
+            Tuition: $<h:outputText id="tuition" value="#{loginController.univHP.tuition}">
+            </h:outputText> <br/><br/>
+            
+            Graduation Rate: <h:outputText id="gradRate" value="#{loginController.univHP.graduation}">
+            </h:outputText>% <br/><br/>
+            
+            Average Financial Aid: $<h:outputText id="finaid" value="#{loginController.univHP.avgFinAid}">
+            </h:outputText> <br/><br/>
+
+            <h:commandButton id="submitID2" value="Update" action="updateUniversityHP.xhtml" styleClass="asdf"/>
+            <h:commandButton id="accPage2" value="Account Page" action="universityAccountPage.xhtml" styleClass="asdf"/>
+            <h:commandButton id="login" value="Back to Login" action="login.xhtml" styleClass="asdf"/>
+            <h:commandButton id="search" value="Search for Students" action="searchStudent.xhtml" styleClass="asdf"/>
+            <h:commandButton id="logout" value="Logout" action="#{loginController.logout()}" styleClass="asdf"/>
+        </h:form>
+            </div>
+        </div>
+
+        <div id="footer">
+            <ul class="section">
+                <p>Information</p>
+                <li><a href="">About</a></li>
+                <li><a href="">The Team</a></li>
+                <li><a href="">Privacy Policy</a></li>
+            </ul>
+            <ul class="section">
+                <p>Contact</p>
+                <li><a href="">Ask Us Anything</a></li>
+                <li><a href="">Advertisments</a></li>
+            </ul>
+            <ul class="section">
+                <p>Friends</p>
+                <li><a href="">person1</a></li>
+                <li><a href="">person2</a></li>
+                <li><a href="">person3</a></li>
+            </ul>
+            <ul class="section">
+                <p>Follow us</p>
+                <li><a href="">FaceBook</a></li>
+                <li><a href="">Twitter</a></li>
+                <li><a href="">Instagram</a></li>
+            </ul>
+        </div>
+    </h:body>
+</html>
